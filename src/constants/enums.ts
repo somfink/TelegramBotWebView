@@ -1,3 +1,7 @@
 export enum PathRoutes {
-  Dashboard = "/dashboard",
+	Dashboard = '/dashboard',
+	Games = '/games',
+	Progress = '/progress',
+	CustomizeGirl = '/customize',
+	DailyChallenges = '/daily-challenges',
 }

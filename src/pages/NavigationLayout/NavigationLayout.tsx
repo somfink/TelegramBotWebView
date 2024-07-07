@@ -1,38 +1,27 @@
-import { Outlet } from "react-router-dom";
-import "./style.css";
+import { Link, Outlet } from 'react-router-dom';
+import { navigationItems } from './constants';
 
 const NavigationLayout = () => {
-  return (
-    <div className="main-container">
-      <Outlet />
-      <nav className="navigation-container">
-        <nav className="navigation">
-          <ul className="navigation-list">
-            <li className="navigation-item">
-              <span className=".navigation-item__icon"></span>
-              <span>option</span>
-            </li>
-            <li className="navigation-item">
-              <span className=".navigation-item__icon"></span>
-              <span>option</span>
-            </li>
-            <li className="navigation-item">
-              <span className=".navigation-item__icon"></span>
-              <span>option</span>
-            </li>
-            <li className="navigation-item">
-              <span className=".navigation-item__icon"></span>
-              <span>option</span>
-            </li>
-            <li className="navigation-item">
-              <span className=".navigation-item__icon"></span>
-              <span>option</span>
-            </li>
-          </ul>
-        </nav>
-      </nav>
-    </div>
-  );
+	return (
+		<div className='w-full h-full relative bg-gradient-to-t from-red-200 to-red-50'>
+			<div className='w-full h-full pb-32'>
+				<Outlet />
+			</div>
+			<nav className='flex justify-center w-full absolute bottom-9 left-0 px-8'>
+				<ul className='flex justify-evenly w-full'>
+					{navigationItems.map(({ icon: Icon, navigateTo }, index) => (
+						<Link to={navigateTo} key={index}>
+							<li
+								className={`rounded-full bg-red-300 p-4 border-2 border-red-100 shadow-lg`}
+							>
+								<Icon className='text-4xl text-white' />
+							</li>
+						</Link>
+					))}
+				</ul>
+			</nav>
+		</div>
+	);
 };
 
 export default NavigationLayout;
